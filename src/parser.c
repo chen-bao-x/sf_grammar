@@ -192,9 +192,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '}') ADVANCE(11);
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') ADVANCE(15);
-      if (lookahead != 0 &&
-          (lookahead < '[' || ']' < lookahead) &&
-          lookahead != '{') ADVANCE(16);
+      if (lookahead != 0) ADVANCE(16);
       END_STATE();
     case 3:
       if (('[' <= lookahead && lookahead <= ']') ||
@@ -271,16 +269,12 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') ADVANCE(15);
       if (lookahead != 0 &&
-          (lookahead < '[' || ']' < lookahead) &&
-          lookahead != '{' &&
           lookahead != '}') ADVANCE(16);
       END_STATE();
     case 16:
       ACCEPT_TOKEN(sym_comment_text);
       if (lookahead == '\\') ADVANCE(5);
       if (lookahead != 0 &&
-          (lookahead < '[' || ']' < lookahead) &&
-          lookahead != '{' &&
           lookahead != '}') ADVANCE(16);
       END_STATE();
     case 17:

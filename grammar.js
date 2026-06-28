@@ -57,7 +57,7 @@ export default grammar({
       token(
         repeat1(
           choice(
-            /[^{}\[\]\\]{1,}/,
+            /[^}\\]{1,}/,
             seq("\\", choice("[", "{", "]", "}", "\\")),
           ),
         ),

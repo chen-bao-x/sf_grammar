@@ -189,7 +189,7 @@
           "members": [
             {
               "type": "PATTERN",
-              "value": "[^{}\\[\\]\\\\]{1,}"
+              "value": "[^}\\\\]{1,}"
             },
             {
               "type": "SEQ",
